@@ -2,7 +2,7 @@ body{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    background: linear-gradient(#536976, #fff);
+    background: #fff;
 }
 
 .wrapper{
@@ -11,7 +11,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #fff;
+    color: #333;
     font-family: consolas;
 }
 

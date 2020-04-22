@@ -91,10 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if(cardsWon.length === cardArray.length / 2){
             resultDisplay.textContent = `Congratulations! You scored ${cardsWon.length} points`;
             btn.style.opacity = 1;
-            btn.addEventListener('click', () => {
-                //cardArray.sort(() => 0.5 - Math.random());
-                cardsWon = [];
-            })
         }
 
     }
