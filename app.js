@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
             img.addEventListener('click', flipCard);
             img.addEventListener('click', () => {
                 selectedCard.unshift(card.id);
-                console.log(selectedCard)
+                //console.log(selectedCard)
             })
             grid.appendChild(img);
         })
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
         chosenCardId.push(cardId);
 
         this.setAttribute('src', cardArray[cardId].img);
-        console.log(cardsWon);
+        //console.log(cardsWon);
 
         if(chosenCard.length === 2){
             setTimeout(checkForMatch, 500)
