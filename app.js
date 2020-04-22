@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let chosenCard = [];
     let chosenCardId = [];
     let cardsWon = [];
+    let selectedCard = []
 
     //create game board
     const createBoard = () => {
@@ -51,8 +52,12 @@ document.addEventListener('DOMContentLoaded', () => {
             img.setAttribute('data-id', indx);
             img.classList.add('img');
 
-         
-            img.addEventListener('click', flipCard)
+            
+            img.addEventListener('click', flipCard);
+            img.addEventListener('click', () => {
+                selectedCard.unshift(card.id);
+                console.log(selectedCard)
+            })
             grid.appendChild(img);
         })
     }
@@ -61,10 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
         let cards = document.querySelectorAll('img');
         const optionOneId = chosenCardId[0];
         const optionTwoId = chosenCardId[1];
-        console.log(optionOneId)
-        console.log(optionTwoId);
+        //console.log(optionOneId)
+        //console.log(optionTwoId);
 
-        if(chosenCard[0] === chosenCard[1]){
+        if(chosenCard[0] === chosenCard[1] && selectedCard[0] !== selectedCard[1]){
             toast.classList.add('show');
             toast.textContent = 'Congrats! you found a match.';
             toast.style.backgroundColor = '#34bd7c';
@@ -101,16 +106,14 @@ document.addEventListener('DOMContentLoaded', () => {
         let cardId = this.getAttribute('data-id');
 
         if(this.getAttribute('src') === 'images/white.png'){
-            // toast.classList.add('show');
-            // toast.textContent = 'Are you trying to cheat ??';
-            // toast.style.backgroundColor = '#de2f40';
             return;
         }
-
+        
         chosenCard.push(cardArray[cardId].name);
         chosenCardId.push(cardId);
+
         this.setAttribute('src', cardArray[cardId].img);
-        console.log(cardsWon)
+        console.log(cardsWon);
 
         if(chosenCard.length === 2){
             setTimeout(checkForMatch, 500)
