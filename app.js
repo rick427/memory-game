@@ -2,30 +2,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //card options
     const cardArray = [
-        {name: 'fries', img:'images/fries.png'},
-        {name: 'hotDog', img:'images/hotDog.png'},
-        {name: 'cheeseBurger', img:'images/cheeseburger.png'},
-        {name: 'ice-cream', img:'images/ice-cream.png'},
-        {name: 'milkshake', img:'images/milkshake.png'},
-        {name: 'pizza', img:'images/pizza.png'},
-        {name: 'fries', img:'images/fries.png'},
-        {name: 'hotDog', img:'images/hotDog.png'},
-        {name: 'cheeseBurger', img:'images/cheeseburger.png'},
-        {name: 'ice-cream', img:'images/ice-cream.png'},
-        {name: 'milkshake', img:'images/milkshake.png'},
-        {name: 'pizza', img:'images/pizza.png'},
-        {name: 'fries', img:'images/fries.png'},
-        {name: 'hotDog', img:'images/hotDog.png'},
-        {name: 'cheeseBurger', img:'images/cheeseburger.png'},
-        {name: 'ice-cream', img:'images/ice-cream.png'},
-        {name: 'milkshake', img:'images/milkshake.png'},
-        {name: 'pizza', img:'images/pizza.png'},
-        {name: 'fries', img:'images/fries.png'},
-        {name: 'hotDog', img:'images/hotDog.png'},
-        {name: 'cheeseBurger', img:'images/cheeseburger.png'},
-        {name: 'ice-cream', img:'images/ice-cream.png'},
-        {name: 'milkshake', img:'images/milkshake.png'},
-        {name: 'pizza', img:'images/pizza.png'},
+        {name: 'fries', img:'images/fries.png', id: 1},
+        {name: 'hotDog', img:'images/hotDog.png', id: 2},
+        {name: 'cheeseBurger', img:'images/cheeseburger.png', id: 3},
+        {name: 'ice-cream', img:'images/ice-cream.png', id: 4},
+        {name: 'milkshake', img:'images/milkshake.png', id: 5},
+        {name: 'pizza', img:'images/pizza.png', id: 6},
+        {name: 'fries', img:'images/fries.png', id: 7},
+        {name: 'hotDog', img:'images/hotDog.png', id: 8},
+        {name: 'cheeseBurger', img:'images/cheeseburger.png', id: 9},
+        {name: 'ice-cream', img:'images/ice-cream.png', id: 10},
+        {name: 'milkshake', img:'images/milkshake.png', id: 11},
+        {name: 'pizza', img:'images/pizza.png', id: 12},
+        {name: 'fries', img:'images/fries.png', id: 13},
+        {name: 'hotDog', img:'images/hotDog.png', id: 14},
+        {name: 'cheeseBurger', img:'images/cheeseburger.png', id: 15},
+        {name: 'ice-cream', img:'images/ice-cream.png', id: 16},
+        {name: 'milkshake', img:'images/milkshake.png', id: 17},
+        {name: 'pizza', img:'images/pizza.png', id: 18},
+        {name: 'fries', img:'images/fries.png', id: 19},
+        {name: 'hotDog', img:'images/hotDog.png', id: 20},
+        {name: 'cheeseBurger', img:'images/cheeseburger.png', id: 21},
+        {name: 'ice-cream', img:'images/ice-cream.png', id: 22},
+        {name: 'milkshake', img:'images/milkshake.png', id: 23},
+        {name: 'pizza', img:'images/pizza.png', id: 24},
     ];
 
     // randomize the card options
@@ -50,7 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
             img.setAttribute('src', 'images/bl.png');
             img.setAttribute('data-id', indx);
             img.classList.add('img');
-            cardArray.find((val, index) => index === indx ) ? img.addEventListener('click', flipCard) : null;
+
+         
+            img.addEventListener('click', flipCard)
             grid.appendChild(img);
         })
     }
@@ -72,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cards[optionTwoId].setAttribute('src', 'images/white.png');
             cardsWon.push(chosenCard);
 
-            console.log('chosen cards',cardsWon)
+            //console.log('chosen cards',cardsWon)
         }
         else{
             toast.classList.add('show');
@@ -97,9 +99,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function flipCard() {
         let cardId = this.getAttribute('data-id');
+
+        if(this.getAttribute('src') === 'images/white.png'){
+            // toast.classList.add('show');
+            // toast.textContent = 'Are you trying to cheat ??';
+            // toast.style.backgroundColor = '#de2f40';
+            return;
+        }
+
         chosenCard.push(cardArray[cardId].name);
         chosenCardId.push(cardId);
         this.setAttribute('src', cardArray[cardId].img);
+        console.log(cardsWon)
 
         if(chosenCard.length === 2){
             setTimeout(checkForMatch, 500)
