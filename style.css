@@ -1,0 +1,84 @@
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background: linear-gradient(#536976, #fff);
+}
+
+.wrapper{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    font-family: consolas;
+}
+
+.btn{
+    padding: .5rem;
+    width: 10rem;
+    background-color: #34bd7c;
+    color: #fff;
+    border: none;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    opacity: 0;
+    text-align: center;
+}
+
+.grid{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 850px;
+}
+
+@media screen and (max-width: 600px){
+    .grid{
+        width: 100%;
+    }
+
+    #snackbar{
+        left: 50%;
+    }
+}
+
+#snackbar{
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-family: consolas;
+}
+
+#snackbar.show{
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    transition: all 250ms linear;
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+.img{
+    border: 1px solid grey;
+    width: 100px;
+    height: 150px;
+    cursor: pointer;
+}
