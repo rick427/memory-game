@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         else{
             toast.classList.add('show');
-            toast.textContent = 'Sorry bruv, try again !';
+            toast.textContent = 'Incorrect. Try again !';
             toast.style.backgroundColor = '#de2f40';
             setTimeout(() => toast.classList.remove('show'), 1000);
 
